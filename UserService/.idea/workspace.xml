@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df464d00-1115-4bbe-b82b-02da9889112f" name="Changes" comment="First Default">
-      <change beforePath="$PROJECT_DIR$/../ProductService/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductService/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProductService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductService/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductService/src/main/java/com/ecommerce/ProductService/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductService/src/main/java/com/ecommerce/ProductService/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductService/src/main/java/com/ecommerce/ProductService/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductService/src/main/java/com/ecommerce/ProductService/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductService/src/main/java/com/ecommerce/ProductService/services/ProductServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductService/src/main/java/com/ecommerce/ProductService/services/ProductServices.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +103,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757414402898</updated>
-      <workItem from="1757414404600" duration="25210000" />
+      <workItem from="1757414404600" duration="27051000" />
     </task>
     <task id="LOCAL-00001" summary="First Default">
       <option name="closed" value="true" />

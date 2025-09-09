@@ -19,21 +19,42 @@ public class ProductServices {
         this.productRepository = productRepository;
     }
 
-    public Product createProduct(@RequestParam("name") String name,
-                                 @RequestParam("price") float price,
-                                 @RequestParam("quantity") int quantity,
-                                 @RequestParam('image') MultipartFile image,
-                                 @RequestParam("description") String description ) {
+    public Product createProduct(String name,float price,int quantity,String description,MultipartFile image ) {
 
         if(name==null)throw new ProductNotFoundException("Product name is empty");
-        if(price==0)throw new ProductNotFoundException("Product price is empty");
-        if(quantity==0)throw new ProductNotFoundException("Product quantity is empty");
-
+        if(price<=0)throw new ProductNotFoundException("Product price is empty ");
+        if(quantity<=0)throw new ProductNotFoundException("Product quantity is empty");
+        description = (description==null)?"":description;
+        String imgURL = "defaulturl://placeholder";
+        if(image!=null && !image.isEmpty()){
 //        Upload in Google Drive
-        if(image!=null || !image.isEmpty()){
 
+            imgURL = "";
         }
+        String id = UUID.randomUUID().toString();
+        Product product = new Product(id,name,description,price,quantity,imgURL);
+
         return productRepository.save(product);
+    }
+
+    public Product updateProduct(String name,float price,int quantity,String description,MultipartFile image,String productId){
+
+        if(isProductPresent(productId)){
+            Product  product = getProductById(productId);
+            product.setName((name==null)?product.getName():name);
+            product.setPrice((price>=0)?price:product.getPrice());
+            product.setQuantity((quantity>=0)?quantity:product.getQuantity());
+            product.setDescription((description==null)?product.getDescription():description);
+            if(image !=null && !image.isEmpty()){
+//                Replace the image from drive
+
+//                Set image in product url
+            }
+            productRepository.save(product);
+        }else {
+            throw new ProductNotFoundException("Product not found");
+        }
+
     }
     public Product getProductById(String id) {
         return productRepository.findById(id).orElseThrow(()->new ProductNotFoundException("Product is not available"));
