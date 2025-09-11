@@ -1,0 +1,11 @@
+[33ma06c046[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{0}: commit: Order Service recreate
+[33m2a1b82f[m[33m ([m[1;31morigin/today[m[33m)[m HEAD@{1}: reset: moving to 2a1b82f
+[33m60fe5e5[m HEAD@{2}: pull origin main: Fast-forward
+[33m2a1b82f[m[33m ([m[1;31morigin/today[m[33m)[m HEAD@{3}: checkout: moving from today to main
+[33m3ecd718[m[33m ([m[1;32mtoday[m[33m)[m HEAD@{4}: commit: Order Service is starting till now wverything is fine
+[33m2a1b82f[m[33m ([m[1;31morigin/today[m[33m)[m HEAD@{5}: checkout: moving from main to today
+[33m2a1b82f[m[33m ([m[1;31morigin/today[m[33m)[m HEAD@{6}: commit: updated product controller
+[33mdce7042[m HEAD@{7}: commit: updated
+[33m1e06a23[m HEAD@{8}: commit: Uploaded
+[33mf2d3e10[m HEAD@{9}: Branch: renamed refs/heads/master to refs/heads/main
+[33mf2d3e10[m HEAD@{11}: commit (initial): default
