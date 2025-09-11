@@ -27,4 +27,19 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(StockNotAvailableException.class)
+    public ResponseEntity<HashMap<String,String>> StockNotAvailableExceptionHandler(Exception e) {
+        HashMap<String,String> map = new HashMap<>();
+        map.put("message", e.getMessage());
+        map.put("status","failed");
+        return new ResponseEntity<>(map, HttpStatus.NOT_ACCEPTABLE);
+    }
+
+    @ExceptionHandler(StockUpdateFailException.class)
+    public ResponseEntity<HashMap<String,String>> StockUpdateFailExceptionHandler(Exception e) {
+        HashMap<String,String> map = new HashMap<>();
+        map.put("message", e.getMessage());
+        map.put("status","failed");
+        return new ResponseEntity<>(map, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }

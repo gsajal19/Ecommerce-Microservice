@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/../ProductService/src/main/java/com/ecommerce/ProductService/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductService/src/main/java/com/ecommerce/ProductService/controller/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ProductService/src/main/java/com/ecommerce/ProductService/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductService/src/main/java/com/ecommerce/ProductService/exception/GlobalExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ProductService/src/main/java/com/ecommerce/ProductService/services/ProductServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductService/src/main/java/com/ecommerce/ProductService/services/ProductServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +18,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -56,8 +58,9 @@
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ProductServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;today&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/you19/IdeaProjects/Ecommerce/ProductService&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -65,13 +68,17 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
-  <component name="RunManager" selected="Spring Boot.UserServiceApplication">
+  <component name="RunManager" selected="Spring Boot.ProductServiceApplication">
     <configuration name="ProductServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ProductService" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ecommerce.ProductService.ProductServiceApplication" />
@@ -103,7 +110,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757414402898</updated>
-      <workItem from="1757414404600" duration="27051000" />
+      <workItem from="1757414404600" duration="52769000" />
+      <workItem from="1757518947524" duration="42000" />
     </task>
     <task id="LOCAL-00001" summary="First Default">
       <option name="closed" value="true" />

@@ -54,7 +54,7 @@ public class ProductServices {
         }else {
             throw new ProductNotFoundException("Product not found");
         }
-
+    return productRepository.findById(productId).orElse(null);
     }
     public Product getProductById(String id) {
         return productRepository.findById(id).orElseThrow(()->new ProductNotFoundException("Product is not available"));
@@ -70,6 +70,7 @@ public class ProductServices {
 
     public boolean deleteProduct(String id) {
          productRepository.deleteById(id);
-         return isProductPresent(id);
+         return !isProductPresent(id);
     }
+
 }
