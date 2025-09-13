@@ -3,6 +3,12 @@ package com.ecommerce.ProductService.entities;
 import jakarta.persistence.*;
 
 @Entity(name = "productsOrder")
+@Table(
+        name = "productsOrder",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = {"productId", "productId"})
+        }
+)
 public class ProductsOrder {
     enum OrderStatus {
         DEDUCT,
@@ -25,8 +31,8 @@ public class ProductsOrder {
 
     }
 
-    public ProductsOrder(int id, String productId, String orderId, int quantity, float price) {
-        this.id = id;
+    public ProductsOrder( String productId, String orderId, int quantity, float price) {
+//        this.id = id;
         this.productId = productId;
         OrderId = orderId;
         this.quantity = quantity;

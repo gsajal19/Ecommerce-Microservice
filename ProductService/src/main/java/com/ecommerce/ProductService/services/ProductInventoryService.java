@@ -2,7 +2,9 @@ package com.ecommerce.ProductService.services;
 
 import com.ecommerce.ProductService.dto.ProductQuantity;
 import com.ecommerce.ProductService.entities.Product;
+import com.ecommerce.ProductService.entities.ProductsOrder;
 import com.ecommerce.ProductService.exception.StockNotAvailableException;
+import com.ecommerce.ProductService.repository.ProductOrderRespository;
 import com.ecommerce.ProductService.repository.ProductRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,8 @@ public class ProductInventoryService {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private ProductOrderRespository productOrderRespository;
     @Autowired
     private ProductServices productServices;
 
@@ -59,10 +63,12 @@ public class ProductInventoryService {
             for (ProductQuantity product : items) {
                 Product productDB = productServices.getProductById(product.getProductId());
                 if(productDB.getQuantity()-product.getQuantity()<0) {
-                        throw new StockNotAvailableException("Failed to Decrement the product quantity");
+                        throw new StockNotAvailableException("Product is Out of Stock");
                 }
                 productDB.setQuantity(productDB.getQuantity() - product.getQuantity());
+//                productOrderRespository.save(new ProductsOrder(product.getProductId(),orderId,product.getQuantity(),productDB.getPrice()));
                 productRepository.save(productDB);
+
             }
 
         return true;
