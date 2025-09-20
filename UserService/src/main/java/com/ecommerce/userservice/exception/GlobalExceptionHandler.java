@@ -24,4 +24,11 @@ public class GlobalExceptionHandler {
         map.put("status", "failed");
         return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
     }
+    @ExceptionHandler(SomethingWentWrong.class)
+    public ResponseEntity<HashMap<String,Object>> SomethingWentWrong(Exception e){
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("message",e.getMessage());
+        map.put("status", "failed");
+        return new ResponseEntity<>(map, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }

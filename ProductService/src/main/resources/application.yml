@@ -1,6 +1,6 @@
 spring:
   application:
-    name: PRODUCT_SERVICE
+    name: PRODUCT-SERVICE
   datasource:
     password: 123456
     username: postgres
@@ -12,3 +12,13 @@ spring:
       ddl-auto: update
 server:
   port: 8082
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:5001/eureka
+  instance:
+    prefer-ip-address: true
+
+

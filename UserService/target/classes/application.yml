@@ -17,6 +17,16 @@ spring:
     redis:
       host: localhost
       port: 6380
+
+
 server:
   port: 8081
 
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:5001/eureka
+  instance:
+    prefer-ip-address: true

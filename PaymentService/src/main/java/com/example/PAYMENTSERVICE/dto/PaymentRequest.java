@@ -1,6 +1,9 @@
 package com.example.PAYMENTSERVICE.dto;
 
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class PaymentRequest {
     private String orderId;
     private double amount;

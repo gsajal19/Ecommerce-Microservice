@@ -15,7 +15,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<HashMap<String,String>> NullProductValueExceptionHandler(Exception e){
         HashMap<String,String> map = new HashMap<>();
         map.put("message", e.getMessage());
-        map.put("status","failed");
+        map.put("success","false");
         return new ResponseEntity<>(map, HttpStatus.BAD_REQUEST);
     }
 
@@ -23,7 +23,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<HashMap<String,String>> ProductNotFoundExceptionHandler(Exception e){
         HashMap<String,String> map = new HashMap<>();
         map.put("message", e.getMessage());
-        map.put("status","failed");
+        map.put("success","false");
         return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
     }
 
@@ -31,7 +31,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<HashMap<String,String>> StockNotAvailableExceptionHandler(Exception e) {
         HashMap<String,String> map = new HashMap<>();
         map.put("message", e.getMessage());
-        map.put("status","failed");
+        map.put("success","false");
         return new ResponseEntity<>(map, HttpStatus.NOT_ACCEPTABLE);
     }
 
@@ -39,7 +39,14 @@ public class GlobalExceptionHandler {
     public ResponseEntity<HashMap<String,String>> StockUpdateFailExceptionHandler(Exception e) {
         HashMap<String,String> map = new HashMap<>();
         map.put("message", e.getMessage());
-        map.put("status","failed");
+        map.put("success","false");
+        return new ResponseEntity<>(map, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    @ExceptionHandler(SomethingWentWrong.class)
+    public ResponseEntity<HashMap<String,String>> SomethingWentWrongExceptionHandler(Exception e) {
+        HashMap<String,String> map = new HashMap<>();
+        map.put("message", e.getMessage());
+        map.put("success","false");
         return new ResponseEntity<>(map, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

@@ -3,6 +3,7 @@ package com.ecommerce.ProductService.services;
 import com.ecommerce.ProductService.entities.Product;
 import com.ecommerce.ProductService.exception.ProductNotFoundException;
 import com.ecommerce.ProductService.repository.ProductRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,12 +20,22 @@ public class ProductServices {
         this.productRepository = productRepository;
     }
 
+
     public Product createProduct(String name,float price,int quantity,String description,MultipartFile image ) {
 
-        if(name==null)throw new ProductNotFoundException("Product name is empty");
-        if(price<=0)throw new ProductNotFoundException("Product price is empty ");
-        if(quantity<=0)throw new ProductNotFoundException("Product quantity is empty");
+        if(name==null) {
+            throw new ProductNotFoundException("Product name is empty");
+        }
+        if(price<=0){
+            throw new ProductNotFoundException("Product price is empty ");
+        }
+        if(quantity<=0){
+            throw new ProductNotFoundException("Product quantity is empty");
+        }
+
         description = (description==null)?"":description;
+
+
         String imgURL = "defaulturl://placeholder";
         if(image!=null && !image.isEmpty()){
 //        Upload in Google Drive
@@ -38,23 +49,26 @@ public class ProductServices {
     }
 
     public Product updateProduct(String name,float price,int quantity,String description,MultipartFile image,String productId){
-
-        if(isProductPresent(productId)){
-            Product  product = getProductById(productId);
-            product.setName((name==null)?product.getName():name);
-            product.setPrice((price>=0)?price:product.getPrice());
-            product.setQuantity((quantity>=0)?quantity:product.getQuantity());
-            product.setDescription((description==null)?product.getDescription():description);
-            if(image !=null && !image.isEmpty()){
+        try {
+            if (isProductPresent(productId)) {
+                Product product = getProductById(productId);
+                product.setName((name == null) ? product.getName() : name);
+                product.setPrice((price >= 0) ? price : product.getPrice());
+                product.setQuantity((quantity >= 0) ? quantity : product.getQuantity());
+                product.setDescription((description == null) ? product.getDescription() : description);
+                if (image != null && !image.isEmpty()) {
 //                Replace the image from drive
 
 //                Set image in product url
+                }
+                productRepository.save(product);
+            } else {
+                throw new ProductNotFoundException("Product not found");
             }
-            productRepository.save(product);
-        }else {
+            return productRepository.findById(productId).orElse(null);
+        }catch(Exception e){
             throw new ProductNotFoundException("Product not found");
         }
-    return productRepository.findById(productId).orElse(null);
     }
     public Product getProductById(String id) {
         return productRepository.findById(id).orElseThrow(()->new ProductNotFoundException("Product is not available"));
@@ -68,6 +82,7 @@ public class ProductServices {
         return productRepository.findById(id).isPresent();
     }
 
+    @Transactional
     public boolean deleteProduct(String id) {
          productRepository.deleteById(id);
          return !isProductPresent(id);

@@ -1,7 +1,10 @@
 package com.ecommerce.orderservice.dto;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
+@Repository
 public class ViewOrderListCatalog {
     private List<ProductDetails> products;
     private TotalCharges totalCharges;

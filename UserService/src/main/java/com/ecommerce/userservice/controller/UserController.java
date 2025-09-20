@@ -1,5 +1,6 @@
 package com.ecommerce.userservice.controller;
 
+import com.ecommerce.userservice.dto.ReqCredential;
 import com.ecommerce.userservice.entities.User;
 import com.ecommerce.userservice.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users/")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
@@ -21,14 +22,18 @@ public class UserController {
     public User createUser(@RequestBody  User user){
        return userService.generateUser(user);
     }
+
     @GetMapping("/{id}")
-    public User findUserById(@PathVariable String id){
+    public User findUserById(@RequestHeader("X-User-Id") String id){
         return userService.getUserById(id);
     }
+
+
     @GetMapping("/all")
     public List<User> findAllUser(){
         return userService.getAllUser();
     }
+
     @DeleteMapping("/del/{id}")
     public ResponseEntity<HashMap<String,Object>> deleteUser(@PathVariable String id){
         boolean b=  userService.deleteUserById(id);
@@ -54,6 +59,14 @@ public class UserController {
     public ResponseEntity<Boolean> validatePassword(@PathVariable String passwd, @PathVariable String id){
         return new ResponseEntity<>(userService.validateUserPasswd(passwd,id),HttpStatus.ACCEPTED);
 
+    }
+
+
+//     Verify Credentials
+
+    @PostMapping("/valid-credential")
+    public ResponseEntity<HashMap<String,String>> validCredentials(@RequestBody ReqCredential reqCredential){
+        return userService.validCredentials(reqCredential.getUsername(),reqCredential.getPassword());
     }
 
 }
